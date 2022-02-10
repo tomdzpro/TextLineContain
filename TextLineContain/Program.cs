@@ -26,6 +26,7 @@ namespace TextLineContain
             {
                 foreach (string line in lines)
                 {
+                    string dataFull = string.Empty;
                     bool isContain = false;
                     foreach (string full in fulls)
                     {
@@ -38,11 +39,14 @@ namespace TextLineContain
 
                             break;
                         }
+                        dataFull = full;
                     }
 
                     if(!isContain)
+                    {
                         using (StreamWriter sw = File.AppendText(@"data\not_contain.txt"))
-                            sw.WriteLine(line);
+                            sw.WriteLine(dataFull);
+                    }    
                 }
             }
 
